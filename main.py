@@ -18,7 +18,7 @@ def save_picture(url, path, filename='hubble.jpeg'):
 def get_links_for_picture(latest_launch='https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'):
     response = requests.get(latest_launch)
     response.raise_for_status()
-    return response.json()
+    return response.json()['links']['flickr']['original']
 
 
 # pprint(get_links_for_picture())
