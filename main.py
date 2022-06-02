@@ -8,11 +8,12 @@ if not os.path.exists("images"):
     os.makedirs("images")
 
 
-def save_picture(url, path, filename='hubble.jpeg'):
-    response = requests.get(url)
-    response.raise_for_status()
-    with open(f'images/{filename}', 'wb') as file:
-        file.write(response.content)
+def save_picture(links):
+    for index, link in enumerate(links):
+        response = requests.get(link)
+        response.raise_for_status()
+        with open(f'images/{index}.jpeg', 'wb') as file:
+            file.write(response.content)
 
 
 def get_links_for_picture(latest_launch='https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'):
