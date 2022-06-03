@@ -8,7 +8,7 @@ if not os.path.exists("images"):
     os.makedirs("images")
 
 
-def save_picture(links):
+def fetch_spacex_last_launch(links):
     for index, link in enumerate(links):
         response = requests.get(link)
         response.raise_for_status()
