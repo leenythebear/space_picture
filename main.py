@@ -16,7 +16,13 @@ def fetch_spacex_last_launch(links):
             file.write(response.content)
 
 
-def get_links_for_picture(latest_launch='https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'):
+def get_picture_extension(link):
+    parsed_link = urlparse(link)
+    parsed_path = os.path.splitext(parsed_link.path)
+    return parsed_path[1]
+
+
+def get_links_for_pictures(latest_launch='https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'):
     response = requests.get(latest_launch)
     response.raise_for_status()
     return response.json()['links']['flickr']['original']
