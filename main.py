@@ -1,7 +1,7 @@
-from pprint import pprint
-
+from dotenv import load_dotenv
 import requests
 import os
+from urllib.parse import urlparse
 
 
 def create_folder(folder_name):
