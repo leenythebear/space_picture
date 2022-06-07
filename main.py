@@ -9,12 +9,11 @@ def create_folder(folder_name):
         os.makedirs(folder_name)
 
 
-def fetch_spacex_last_launch(links):
-    for index, link in enumerate(links):
-        response = requests.get(link)
-        response.raise_for_status()
-        with open(f'images/{index}.jpeg', 'wb') as file:
-            file.write(response.content)
+def save_picture(link, folder_name, extension):
+    response = requests.get(link)
+    response.raise_for_status()
+    with open(f'{folder_name}/{folder_name}{index}{extension}', 'wb') as file:
+        file.write(response.content)
 
 
 def get_picture_extension(link):
