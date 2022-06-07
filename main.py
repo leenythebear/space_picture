@@ -41,3 +41,21 @@ def get_links_for_picture_nasa(count, url, token):
     return links
 
 
+if __name__ == "__main__":
+    links_for_picture_spacex = get_links_for_pictures_spacex(
+        'https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'
+    )
+    folder_name_spacex = 'spacex'
+    create_folder(folder_name_spacex)
+    for index, link in enumerate(links_for_picture_spacex):
+        extension = get_picture_extension(link)
+        save_picture(link, folder_name_spacex, extension)
+
+    load_dotenv()
+    nasa_token = os.environ['NASA_TOKEN']
+    links_for_picture_nasa = get_links_for_picture_nasa(50, "https://api.nasa.gov/planetary/apod", nasa_token)
+    folder_name_nasa = 'nasa'
+    create_folder(folder_name_nasa)
+    for index, link in enumerate(links_for_picture_nasa):
+        extension = get_picture_extension(link)
+        save_picture(link, folder_name_nasa, extension)
