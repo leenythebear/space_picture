@@ -4,8 +4,9 @@ import requests
 import os
 
 
-if not os.path.exists("images"):
-    os.makedirs("images")
+def create_folder(folder_name):
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
 
 
 def fetch_spacex_last_launch(links):
