@@ -22,8 +22,8 @@ def get_picture_extension(link):
     return parsed_path[1]
 
 
-def get_links_for_pictures(latest_launch='https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'):
-    response = requests.get(latest_launch)
+def get_links_for_pictures_spacex(url):
+    response = requests.get(url)
     response.raise_for_status()
     return response.json()['links']['flickr']['original']
 
