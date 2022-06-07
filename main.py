@@ -28,5 +28,16 @@ def get_links_for_pictures(latest_launch='https://api.spacexdata.com/v4/launches
     return response.json()['links']['flickr']['original']
 
 
-# pprint(get_links_for_picture())
+def get_links_for_picture_nasa(count, url, token):
+    params = {"api_key": f"{nasa_token}",
+              "count": count
+              }
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    links = []
+    for picture in response.json():
+        if picture['media_type'] == "image":
+            links.append(picture["hdurl"])
+    return links
+
 
