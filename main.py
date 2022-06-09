@@ -9,8 +9,9 @@ def create_folder(folder_name):
         os.makedirs(folder_name)
 
 
-def save_picture(link, folder_name, extension):
-    response = requests.get(link)
+def save_picture(url, folder_name, extension, token=None):
+    params = {"api_key": f"{token}"}
+    response = requests.get(url, params=params)
     response.raise_for_status()
     with open(f'{folder_name}/{folder_name}{index}{extension}', 'wb') as file:
         file.write(response.content)
