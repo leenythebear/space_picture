@@ -16,8 +16,8 @@ def save_picture(link, folder_name, extension):
         file.write(response.content)
 
 
-def get_picture_extension(link):
-    parsed_link = urlparse(link)
+def get_picture_extension(url):
+    parsed_link = urlparse(url)
     parsed_path = os.path.splitext(parsed_link.path)
     return parsed_path[1]
 
@@ -29,7 +29,7 @@ def get_links_for_pictures_spacex(url):
 
 
 def get_links_for_picture_nasa(count, url, token):
-    params = {"api_key": f"{nasa_token}",
+    params = {"api_key": f"{token}",
               "count": count
               }
     response = requests.get(url, params=params)
@@ -48,8 +48,8 @@ if __name__ == "__main__":
     folder_name_spacex = 'spacex'
     create_folder(folder_name_spacex)
     for index, link in enumerate(links_for_picture_spacex):
-        extension = get_picture_extension(link)
-        save_picture(link, folder_name_spacex, extension)
+        picture_extension = get_picture_extension(link)
+        save_picture(link, folder_name_spacex, picture_extension)
 
     load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
