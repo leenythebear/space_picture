@@ -79,5 +79,12 @@ if __name__ == "__main__":
     folder_name_nasa = 'nasa'
     create_folder(folder_name_nasa)
     for index, link in enumerate(links_for_picture_nasa):
-        extension = get_picture_extension(link)
-        save_picture(link, folder_name_nasa, extension)
+        picture_extension = get_picture_extension(link)
+        save_picture(link, folder_name_nasa, picture_extension)
+
+    picture_parameters = get_earth_picture_parameters('https://api.nasa.gov/EPIC/api/natural/images', nasa_token)
+    folder_name_earth = "nasa_earth"
+    create_folder(folder_name_earth)
+    links_for_picture_earth = get_links_for_earth_picture(picture_parameters)
+    for index, link in enumerate(links_for_picture_earth):
+        save_picture(link, folder_name_earth, extension='.png', token=nasa_token)
