@@ -82,7 +82,6 @@ if __name__ == "__main__":
         picture_extension = get_picture_extension(link)
         save_picture(link, folder_name_spacex, picture_extension)
 
-    load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
     links_for_picture_nasa = get_links_for_picture_nasa(50, "https://api.nasa.gov/planetary/apod", nasa_token)
     folder_name_nasa = 'nasa'
