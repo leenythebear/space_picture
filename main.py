@@ -39,7 +39,7 @@ def get_links_for_picture_nasa(count, url, token):
     links = []
     for picture in response.json():
         if picture['media_type'] == "image":
-            links.append(picture["hdurl"])
+            links.append(picture["url"])
     return links
 
 
