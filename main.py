@@ -65,6 +65,14 @@ def get_links_for_earth_picture(parameters_of_picture):
 
 
 if __name__ == "__main__":
+    load_dotenv()
+    bot_token = os.environ['BOT_TOKEN']
+    bot = telegram.Bot(token=bot_token)
+    updates = bot.get_updates()
+    chat_id = "@cosmicboybot2022"
+    # bot.send_message(text="HI", chat_id=chat_id)
+    bot.send_photo(chat_id=chat_id, photo=open('nasa_earth/nasa_earth0.png', 'rb'))
+
     links_for_picture_spacex = get_links_for_pictures_spacex(
         'https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'
     )
