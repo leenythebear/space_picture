@@ -42,6 +42,27 @@ def get_links_for_picture_nasa(count, url, token):
     return links
 
 
+def get_earth_picture_parameters(url, token):
+    params = {"api_key": f"{token}"}
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    parameters_of_picture = []
+    for picture in response.json():
+        parameters_of_picture.append([picture['date'], picture['image']])
+    return parameters_of_picture
+
+
+def get_links_for_earth_picture(parameters_of_picture):
+    archive_url = 'https://api.nasa.gov/EPIC/archive/natural'
+    links = []
+    for parameters in parameters_of_picture:
+        date = parameters[0].split()[0].replace("-", "/")
+        name = parameters[1]
+        url = archive_url + f"/{date}/png/{name}.png"
+        links.append(url)
+    return links[:1]
+
+
 if __name__ == "__main__":
     links_for_picture_spacex = get_links_for_pictures_spacex(
         'https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'
