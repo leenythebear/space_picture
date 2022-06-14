@@ -6,13 +6,13 @@ import requests
 from helper import save_picture, create_folder, get_picture_extension
 
 
-URL = 'https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'
+BASE_URL = 'https://api.spacexdata.com/v4/launches'
 IMAGES_FOLDER = 'images'
 FILE_NAME = 'spacex'
 
 
-def get_spacex_images_links():
-    response = requests.get(URL)
+def get_spacex_images_links(link):
+    response = requests.get(link)
     response.raise_for_status()
     return response.json()['links']['flickr']['original']
 
