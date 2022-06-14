@@ -12,7 +12,7 @@ NASA_TOKEN = os.getenv("NASA_TOKEN")
 FILE_NAME = 'epic'
 
 
-def get_earth_images_parameters():
+def get_epic_images_parameters():
     params = {"api_key": f"{NASA_TOKEN}"}
     response = requests.get(URL, params=params)
     response.raise_for_status()
@@ -22,7 +22,7 @@ def get_earth_images_parameters():
     return parameters_of_picture
 
 
-def get_earth_images_links(parameters_of_picture):
+def get_epic_images_links(parameters_of_picture):
     archive_url = 'https://api.nasa.gov/EPIC/archive/natural'
     links = []
     for parameters in parameters_of_picture:
@@ -40,8 +40,8 @@ def fetch_epic_nasa_images(links):
 
 
 if __name__ == "__main__":
-    picture_parameters = get_earth_images_parameters()
-    links_earth_picture = get_earth_images_links(picture_parameters)
-    fetch_epic_nasa_images(links_earth_picture)
+    images_parameters = get_epic_images_parameters()
+    epic_images_links = get_epic_images_links(images_parameters)
+    fetch_epic_nasa_images(epic_images_links)
 
 
