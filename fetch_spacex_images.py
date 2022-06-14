@@ -1,3 +1,6 @@
+import argparse
+from urllib.parse import urlparse
+
 import requests
 
 from helper import save_picture, create_folder, get_picture_extension
