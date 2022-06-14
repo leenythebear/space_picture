@@ -4,7 +4,8 @@ from helper import save_picture, create_folder, get_picture_extension
 
 
 URL = 'https://api.spacexdata.com/v4/launches/5eb87d47ffd86e000604b38a'
-IMAGES_FOLDER = 'spacex'
+IMAGES_FOLDER = 'images'
+FILE_NAME = 'spacex'
 
 
 def get_spacex_images_links():
@@ -17,7 +18,7 @@ def fetch_spacex_images(links):
     create_folder(IMAGES_FOLDER)
     for index, link in enumerate(links):
         extension = get_picture_extension(link)
-        save_picture(index, link, IMAGES_FOLDER, extension)
+        save_picture(index, link, IMAGES_FOLDER, FILE_NAME, extension)
 
 
 if __name__ == '__main__':
