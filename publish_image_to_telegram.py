@@ -3,11 +3,9 @@ import telegram
 import os
 import random
 
-load_dotenv()
-
-CHAT_ID = "@cosmicboybot2022"
-BOT_TOKEN = os.environ['BOT_TOKEN']
-IMAGES_FOLDER = 'images'
+from settings import CHAT_ID
+from settings import BOT_TOKEN
+from settings import IMAGES_FOLDER
 
 
 def publish_image(images_paths):

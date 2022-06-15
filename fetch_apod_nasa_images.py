@@ -4,12 +4,10 @@ import requests
 
 from helper import save_picture, create_folder, get_picture_extension
 
-load_dotenv()
-
-URL = 'https://api.nasa.gov/planetary/apod'
-IMAGES_FOLDER = 'images'
-FILE_NAME = 'apod'
-NASA_TOKEN = os.getenv("NASA_TOKEN")
+from settings import APOD_URL
+from settings import IMAGES_FOLDER
+from settings import FILE_NAME_APOD
+from settings import NASA_TOKEN
 
 
 def get_apod_nasa_links(count=30):

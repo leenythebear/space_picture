@@ -4,12 +4,10 @@ import requests
 
 from helper import save_picture, create_folder
 
-load_dotenv()
-
-URL = 'https://api.nasa.gov/EPIC/api/natural/images'
-IMAGES_FOLDER = 'images'
-NASA_TOKEN = os.getenv("NASA_TOKEN")
-FILE_NAME = 'epic'
+from settings import EPIC_URL
+from settings import IMAGES_FOLDER
+from settings import NASA_TOKEN
+from settings import FILE_NAME_EPIC
 
 
 def get_epic_images_parameters():

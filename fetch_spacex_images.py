@@ -5,10 +5,9 @@ import requests
 
 from helper import save_picture, create_folder, get_picture_extension
 
-
-BASE_URL = 'https://api.spacexdata.com/v4/launches'
-IMAGES_FOLDER = 'images'
-FILE_NAME = 'spacex'
+from settings import IMAGES_FOLDER
+from settings import SPACEX_URL
+from settings import FILE_NAME_SPACEX
 
 
 def get_spacex_images_links(link):
