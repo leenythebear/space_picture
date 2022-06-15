@@ -1,7 +1,7 @@
 # Телеграм-бот для скачивания фотографий космоса и публикации их с помощью бота в Telegram
 
 
-[space_image](https://klike.net/uploads/posts/2019-06/1560231201_2.jpg)
+![space_image](https://klike.net/uploads/posts/2019-06/1560231201_2.jpg)
 
 
 ## Установка
