@@ -1,7 +1,7 @@
 import argparse
 import time
 from urllib.parse import urlparse
-
+import os
 from dotenv import load_dotenv
 
 from fetch_apod_nasa_images import fetch_apod_nasa_images, get_apod_nasa_links
@@ -10,7 +10,7 @@ from fetch_epic_nasa_images import (fetch_epic_nasa_images,
                                     get_epic_images_parameters)
 from fetch_spacex_images import fetch_spacex_images, get_spacex_images_links, get_launch_with_images
 from publish_image_to_telegram import del_image, publish_image, take_files
-from settings import ALL_LAUNCHES_URL, TIME_SLEEP
+from settings import ALL_LAUNCHES_URL, TIME_SLEEP, IMAGES_FOLDER
 
 load_dotenv()
 
