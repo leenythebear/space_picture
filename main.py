@@ -16,12 +16,8 @@ load_dotenv()
 
 if __name__ == "__main__":
     while True:
-        time.sleep(TIME_SLEEP)
-        paths = take_files()
-        if len(paths) > 0:
-            path = publish_image(paths)
-            del_image(path)
-        else:
+        paths = list(os.walk(IMAGES_FOLDER))
+        if not paths:
             id_flight = get_launch_with_images()
             parser = argparse.ArgumentParser(description='Выгрузка фотографий запуска SpaceX')
             parser.add_argument("--id", help='ID полета для выгрузки фотографий', default=id_flight)
@@ -37,6 +33,12 @@ if __name__ == "__main__":
             images_parameters = get_epic_images_parameters()
             epic_images_links = get_epic_images_links(images_parameters)
             fetch_epic_nasa_images(epic_images_links)
+        else:
+            time.sleep(TIME_SLEEP)
+            images_path = take_files()
+            image_path = publish_image(images_path)
+            del_image(image_path)
+
 
 
 
