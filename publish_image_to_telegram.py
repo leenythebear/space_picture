@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import telegram
 import os
 import random
