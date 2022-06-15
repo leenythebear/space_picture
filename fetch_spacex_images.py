@@ -1,4 +1,5 @@
 import argparse
+import random
 from urllib.parse import urlparse
 
 import requests
@@ -39,7 +40,7 @@ def fetch_spacex_images(links):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Выгрузка фотографий запуска SpaceX')
-    parser.add_argument('id', help='ID полета для выгрузки фотографий')
+    parser.add_argument("--id", help='ID полета для выгрузки фотографий', default=id_flight)
     args = parser.parse_args()
     flight_id = urlparse(args.id)
     url = SPACEX_URL + f'/{flight_id.path}'
