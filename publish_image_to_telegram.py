@@ -24,7 +24,6 @@ def take_files():
 
 def del_image(image_path):
     os.remove(image_path)
-    print(image_path)
 
 
 if __name__ == '__main__':
