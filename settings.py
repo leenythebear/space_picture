@@ -6,6 +6,7 @@ load_dotenv()
 
 CHAT_ID = "@cosmicboybot2022"
 BOT_TOKEN = os.environ['BOT_TOKEN']
+TIME_SLEEP = 14400
 
 IMAGES_FOLDER = 'images'
 
