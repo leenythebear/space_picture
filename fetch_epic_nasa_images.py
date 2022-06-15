@@ -10,7 +10,7 @@ from settings import FILE_NAME_EPIC
 
 def get_epic_images_parameters():
     params = {"api_key": f"{NASA_TOKEN}"}
-    response = requests.get(URL, params=params)
+    response = requests.get(EPIC_URL, params=params)
     response.raise_for_status()
     parameters_of_picture = []
     for picture in response.json():
@@ -32,7 +32,7 @@ def get_epic_images_links(parameters_of_picture):
 def fetch_epic_nasa_images(links):
     create_folder(IMAGES_FOLDER)
     for index, link in enumerate(links):
-        save_picture(index, link, IMAGES_FOLDER, FILE_NAME, extension='.png', token=NASA_TOKEN)
+        save_picture(index, link, IMAGES_FOLDER, FILE_NAME_EPIC, extension='.png', token=NASA_TOKEN)
 
 
 if __name__ == "__main__":
