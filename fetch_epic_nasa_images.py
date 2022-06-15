@@ -1,11 +1,7 @@
 import requests
 
-from helper import save_picture, create_folder
-
-from settings import EPIC_URL
-from settings import IMAGES_FOLDER
-from settings import NASA_TOKEN
-from settings import FILE_NAME_EPIC
+from helper import create_folder, save_picture
+from settings import EPIC_URL, FILE_NAME_EPIC, IMAGES_FOLDER, NASA_TOKEN
 
 
 def get_epic_images_parameters():
