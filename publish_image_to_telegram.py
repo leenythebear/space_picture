@@ -9,7 +9,7 @@ from settings import IMAGES_FOLDER
 
 def publish_image(images_paths):
     bot = telegram.Bot(token=BOT_TOKEN)
-    image_path = random.choice(paths)
+    image_path = random.choice(images_paths)
     bot.send_photo(chat_id=CHAT_ID, photo=open(image_path, 'rb'))
     return image_path
 
