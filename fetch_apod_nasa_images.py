@@ -1,11 +1,7 @@
 import requests
 
-from helper import save_picture, create_folder, get_picture_extension
-
-from settings import APOD_URL
-from settings import IMAGES_FOLDER
-from settings import FILE_NAME_APOD
-from settings import NASA_TOKEN
+from helper import create_folder, get_picture_extension, save_picture
+from settings import APOD_URL, FILE_NAME_APOD, IMAGES_FOLDER, NASA_TOKEN
 
 
 def get_apod_nasa_links(count=30):
