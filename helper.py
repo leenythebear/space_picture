@@ -1,6 +1,7 @@
-import requests
 import os
 from urllib.parse import urlparse
+
+import requests
 
 
 def create_folder(folder_name):
