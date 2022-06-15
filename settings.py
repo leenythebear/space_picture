@@ -12,7 +12,8 @@ IMAGES_FOLDER = 'images'
 
 NASA_TOKEN = os.getenv("NASA_TOKEN")
 
-SPACEX_URL = 'https://api.spacexdata.com/v4/launches'
+ALL_LAUNCHES_URL = 'https://api.spacexdata.com/v4/launches'
+LATEST_LAUNCH_URL = 'https://api.spacexdata.com/v4/launches/latest'
 FILE_NAME_SPACEX = 'spacex'
 
 APOD_URL = 'https://api.nasa.gov/planetary/apod'
