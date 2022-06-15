@@ -1,10 +1,9 @@
-import telegram
 import os
 import random
 
-from settings import CHAT_ID
-from settings import BOT_TOKEN
-from settings import IMAGES_FOLDER
+import telegram
+
+from settings import BOT_TOKEN, CHAT_ID, IMAGES_FOLDER
 
 
 def publish_image(images_paths):
