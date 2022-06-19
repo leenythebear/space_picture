@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CHAT_ID = "@cosmicboybot2022"
-BOT_TOKEN = os.environ["BOT_TOKEN"]
+CHAT_ID = os.getenv("CHAT_ID")
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 TIME_SLEEP = 14400
 
 IMAGES_FOLDER = "images"
