@@ -6,11 +6,9 @@ import telegram
 from settings import BOT_TOKEN, CHAT_ID, IMAGES_FOLDER
 
 
-def publish_image(images_paths):
+def publish_image(image_path):
     bot = telegram.Bot(token=BOT_TOKEN)
-    image_path = random.choice(images_paths)
     bot.send_photo(chat_id=CHAT_ID, photo=open(image_path, "rb"))
-    return image_path
 
 
 def take_files():
@@ -28,5 +26,6 @@ def del_image(image_path):
 
 if __name__ == "__main__":
     paths = take_files()
-    path = publish_image(paths)
+    path = random.choice(paths)
+    publish_image(path)
     del_image(path)

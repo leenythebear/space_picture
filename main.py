@@ -3,6 +3,7 @@ import time
 from urllib.parse import urlparse
 import os
 from dotenv import load_dotenv
+import random
 
 from fetch_apod_nasa_images import fetch_apod_nasa_images, get_apod_nasa_links
 from fetch_epic_nasa_images import (
@@ -48,5 +49,6 @@ if __name__ == "__main__":
         else:
             time.sleep(TIME_SLEEP)
             images_path = take_files()
-            image_path = publish_image(images_path)
+            image_path = random.choice(images_path)
+            publish_image_path = publish_image(image_path)
             del_image(image_path)
