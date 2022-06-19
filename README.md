@@ -55,8 +55,6 @@ ___
 
 * ALL_LAUNCHES_URL - URL для получения информации о всех запусках SpaceX
 
-* LATEST_LAUNCH_URL - URL для получения информации о последнем запуске SpaceX
-
 * FILE_NAME_SPACEX - имя для сохраняемых фотографий запуска SpaceX
 
 * APOD_URL - URL для получения информации о фото дня NASA
