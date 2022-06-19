@@ -1,5 +1,4 @@
 import argparse
-import random
 from urllib.parse import urlparse
 
 import requests
