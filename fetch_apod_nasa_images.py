@@ -20,7 +20,12 @@ def fetch_apod_nasa_images(links):
     for index, link in enumerate(links):
         extension = get_picture_extension(link)
         save_picture(
-            index, link, IMAGES_FOLDER, FILE_NAME_APOD, extension, token=NASA_TOKEN
+            index,
+            link,
+            IMAGES_FOLDER,
+            FILE_NAME_APOD,
+            extension,
+            token=NASA_TOKEN,
         )
 
 

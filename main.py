@@ -29,7 +29,9 @@ if __name__ == "__main__":
                 description="Выгрузка фотографий запуска SpaceX"
             )
             parser.add_argument(
-                "--id", help="ID полета для выгрузки фотографий", default=id_flight
+                "--id",
+                help="ID полета для выгрузки фотографий",
+                default=id_flight,
             )
             args = parser.parse_args()
             flight_id = urlparse(args.id)
