@@ -1,5 +1,7 @@
+import argparse
 import os
 import random
+from urllib.parse import urlparse
 
 import telegram
 
@@ -25,7 +27,24 @@ def del_image(image_path):
 
 
 if __name__ == "__main__":
-    paths = take_files()
-    path = random.choice(paths)
-    publish_image(path)
-    del_image(path)
+    parser = argparse.ArgumentParser(
+        description="Публикация фотографии в Telegram"
+    )
+    parser.add_argument(
+        "--image",
+        help="Наименование фотографии",
+    )
+    args = parser.parse_args()
+    if args.image:
+        image = urlparse(args.image)
+        path = IMAGES_FOLDER + f"/{image.path}"
+        if os.path.isfile(path):
+            publish_image(path)
+            del_image(path)
+        else:
+            print("Указанного файла не существует")
+    else:
+        paths = take_files()
+        path = random.choice(paths)
+        publish_image(path)
+        del_image(path)
