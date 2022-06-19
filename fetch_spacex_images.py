@@ -4,8 +4,7 @@ from urllib.parse import urlparse
 import requests
 
 from helper import create_folder, get_picture_extension, save_picture
-from settings import (ALL_LAUNCHES_URL, FILE_NAME_SPACEX, IMAGES_FOLDER,
-                      LATEST_LAUNCH_URL)
+from settings import (ALL_LAUNCHES_URL, FILE_NAME_SPACEX, IMAGES_FOLDER)
 
 
 def get_launch_with_images():
