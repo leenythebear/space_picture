@@ -10,12 +10,12 @@ def get_epic_images_parameters():
     response.raise_for_status()
     parameters_of_picture = []
     for picture in response.json():
-        parameters_of_picture.append([picture['date'], picture['image']])
+        parameters_of_picture.append([picture["date"], picture["image"]])
     return parameters_of_picture
 
 
 def get_epic_images_links(parameters_of_picture):
-    archive_url = 'https://api.nasa.gov/EPIC/archive/natural'
+    archive_url = "https://api.nasa.gov/EPIC/archive/natural"
     links = []
     for parameters in parameters_of_picture:
         date = parameters[0].split()[0].replace("-", "/")
@@ -28,12 +28,17 @@ def get_epic_images_links(parameters_of_picture):
 def fetch_epic_nasa_images(links):
     create_folder(IMAGES_FOLDER)
     for index, link in enumerate(links):
-        save_picture(index, link, IMAGES_FOLDER, FILE_NAME_EPIC, extension='.png', token=NASA_TOKEN)
+        save_picture(
+            index,
+            link,
+            IMAGES_FOLDER,
+            FILE_NAME_EPIC,
+            extension=".png",
+            token=NASA_TOKEN,
+        )
 
 
 if __name__ == "__main__":
     images_parameters = get_epic_images_parameters()
     epic_images_links = get_epic_images_links(images_parameters)
     fetch_epic_nasa_images(epic_images_links)
-
-

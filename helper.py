@@ -12,7 +12,7 @@ def save_picture(index, url, folder_name, filename, extension, token=None):
     params = {"api_key": f"{token}"}
     response = requests.get(url, params=params)
     response.raise_for_status()
-    with open(f'{folder_name}/{filename}{index}{extension}', 'wb') as file:
+    with open(f"{folder_name}/{filename}{index}{extension}", "wb") as file:
         file.write(response.content)
 
 
