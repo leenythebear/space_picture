@@ -10,22 +10,14 @@ from settings import (ALL_LAUNCHES_URL, FILE_NAME_SPACEX, IMAGES_FOLDER,
 
 
 def get_launch_with_images():
-    response = requests.get(LATEST_LAUNCH_URL)
-    response.raise_for_status()
-    if len(response.json()['links']['flickr']['original']) != 0:
-        return "latest"
-
     response = requests.get(ALL_LAUNCHES_URL)
     response.raise_for_status()
-    flights = [flight['id'] for flight in response.json()]
-    flight_number = random.choice(flights)
-    response = requests.get(f"{ALL_LAUNCHES_URL}/{flight_number}")
-    response.raise_for_status()
-    while len(response.json()['links']['flickr']['original']) == 0:
-        flight_number = random.choice(flights)
+    for flight in response.json()[::-1]:
+        flight_number = flight['id']
         response = requests.get(f"{ALL_LAUNCHES_URL}/{flight_number}")
         response.raise_for_status()
-    return flight_number
+        if len(response.json()['links']['flickr']['original']) != 0:
+            return flight_number
 
 
 def get_spacex_images_links(link):
