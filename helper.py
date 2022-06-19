@@ -5,8 +5,7 @@ import requests
 
 
 def create_folder(folder_name):
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
+    os.makedirs(folder_name, exist_ok=True)
 
 
 def save_picture(index, url, folder_name, filename, extension, token=None):
