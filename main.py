@@ -43,8 +43,8 @@ if __name__ == "__main__":
             epic_images_links = get_epic_images_links(images_parameters)
             fetch_epic_nasa_images(epic_images_links)
         else:
-            time.sleep(TIME_SLEEP)
             images_path = take_files()
             image_path = random.choice(images_path)
             publish_image_path = publish_image(image_path)
             del_image(image_path)
+            time.sleep(TIME_SLEEP)
