@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 
 from helper import create_folder, save_picture
@@ -18,7 +20,9 @@ def get_epic_images_links(parameters_of_picture):
     archive_url = "https://api.nasa.gov/EPIC/archive/natural"
     links = []
     for parameters in parameters_of_picture:
-        date = parameters[0].split()[0].replace("-", "/")
+        image_datetime = parameters[0].split()[0]
+        date = datetime.date.fromisoformat(image_datetime).strftime("%Y/%m/%d")
+        print(date)
         name = parameters[1]
         url = archive_url + f"/{date}/png/{name}.png"
         links.append(url)
