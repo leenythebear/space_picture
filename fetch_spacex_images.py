@@ -38,6 +38,10 @@ if __name__ == '__main__':
     parser.add_argument("--id", help='ID полета для выгрузки фотографий', default=id_flight)
     args = parser.parse_args()
     flight_id = urlparse(args.id)
-    url = ALL_LAUNCHES_URL + f'/{flight_id.path}'
+    if flight_id:
+        url = ALL_LAUNCHES_URL + f'/{flight_id.path}'
+    else:
+        url = get_launch_with_images()
     spacex_images_links = get_spacex_images_links(url)
     fetch_spacex_images(spacex_images_links)
+
