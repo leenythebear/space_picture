@@ -1,9 +1,10 @@
 import argparse
+import os
 from urllib.parse import urlparse
 
 import requests
 
-from helper import create_folder, get_picture_extension, save_picture
+from helper import get_picture_extension, save_picture
 from settings import ALL_LAUNCHES_URL, FILE_NAME_SPACEX, IMAGES_FOLDER
 
 
@@ -25,7 +26,7 @@ def get_spacex_images_links(link):
 
 
 def fetch_spacex_images(links):
-    create_folder(IMAGES_FOLDER)
+    os.makedirs(IMAGES_FOLDER, exist_ok=True)
     for index, link in enumerate(links):
         extension = get_picture_extension(link)
         save_picture(index, link, IMAGES_FOLDER, FILE_NAME_SPACEX, extension)

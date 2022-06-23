@@ -4,10 +4,6 @@ from urllib.parse import urlparse
 import requests
 
 
-def create_folder(folder_name):
-    os.makedirs(folder_name, exist_ok=True)
-
-
 def save_picture(index, url, folder_name, filename, extension, token=None):
     params = {"api_key": f"{token}"}
     response = requests.get(url, params=params)

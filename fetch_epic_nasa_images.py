@@ -1,8 +1,9 @@
 import datetime
+import os
 
 import requests
 
-from helper import create_folder, save_picture
+from helper import save_picture
 from settings import EPIC_URL, FILE_NAME_EPIC, IMAGES_FOLDER, NASA_TOKEN
 
 
@@ -30,7 +31,7 @@ def get_epic_images_links(parameters_of_picture):
 
 
 def fetch_epic_nasa_images(links):
-    create_folder(IMAGES_FOLDER)
+    os.makedirs(IMAGES_FOLDER, exist_ok=True)
     for index, link in enumerate(links):
         save_picture(
             index,

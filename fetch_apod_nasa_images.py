@@ -1,6 +1,9 @@
+import os
+
 import requests
 
-from helper import create_folder, get_picture_extension, save_picture
+
+from helper import get_picture_extension, save_picture
 from settings import APOD_URL, FILE_NAME_APOD, IMAGES_FOLDER, NASA_TOKEN
 
 
@@ -16,7 +19,7 @@ def get_apod_nasa_links(count=30):
 
 
 def fetch_apod_nasa_images(links):
-    create_folder(IMAGES_FOLDER)
+    os.makedirs(IMAGES_FOLDER, exist_ok=True)
     for index, link in enumerate(links):
         extension = get_picture_extension(link)
         save_picture(
