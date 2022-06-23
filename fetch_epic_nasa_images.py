@@ -23,7 +23,6 @@ def get_epic_images_links(parameters_of_picture):
     for parameters in parameters_of_picture:
         image_datetime = parameters[0].split()[0]
         date = datetime.date.fromisoformat(image_datetime).strftime("%Y/%m/%d")
-        print(date)
         name = parameters[1]
         url = archive_url + f"/{date}/png/{name}.png"
         links.append(url)
