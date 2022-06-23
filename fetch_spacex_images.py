@@ -33,12 +33,14 @@ def fetch_spacex_images(links):
 
 
 if __name__ == "__main__":
-    id_flight = get_launch_with_images()
+    last_flight_id_with_images = get_launch_with_images()
     parser = argparse.ArgumentParser(
         description="Выгрузка фотографий запуска SpaceX"
     )
     parser.add_argument(
-        "--id", help="ID полета для выгрузки фотографий", default=id_flight
+        "--id",
+        help="ID полета для выгрузки фотографий",
+        default=last_flight_id_with_images,
     )
     args = parser.parse_args()
     flight_id = urlparse(args.id)
